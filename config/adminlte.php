@@ -322,7 +322,7 @@ return [
         ],
         [
             'text' => 'Dashboard',
-            'url' => 'admin/pages',
+            'url' => 'admin/home',
             'icon' => 'fas fa-fw fa-home',
         ],
         ['header' => 'HALAMAN'],
@@ -332,18 +332,18 @@ return [
             'submenu' => [
                 [
                     'text' => 'Buat Kegiatan',
-                    'url' => '',
+                    'url' => 'admin/create-kegiatan',
                     'icon' => 'fas fa-fw fa-plus-square'
                     
                 ],
                 [
                     'text' => 'List Kegiatan',
-                    'url' => '#',
+                    'url' => 'admin/list-kegiatan',
                     'icon' => 'fas fa-fw fa-list-ul',
                 ],
                 [
                     'text' => 'Evaluasi Kegiatan',
-                    'url' => '#',
+                    'url' => 'admin/evaluasi-kegiatan',
                     'icon' => 'fas fa-fw fa-edit',
                 ]
             ]
