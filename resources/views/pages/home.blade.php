@@ -3,14 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <x-content-header title="Dashboard" breadcrumb="Dashboard" />
 @stop
 
-@section('content')
-    <p>Selamat Datang di Aplikasi Kelola Kegiatan.</p>
-@stop
-
-@section('css')
+@section('adminlte_css')
     {{-- Add here extra stylesheets --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
