@@ -51,6 +51,12 @@ return [
         'allowed' => true,
     ],
 
+    'adminlte_css' => [
+        'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap',
+        'css/fonts.css',
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Admin Panel Logo
@@ -257,7 +263,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',

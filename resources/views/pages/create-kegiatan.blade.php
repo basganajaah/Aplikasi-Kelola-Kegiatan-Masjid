@@ -1,7 +1,9 @@
 @extends('adminlte::page')
 
+@section('title', 'Kelola Kegiatan')
+
 @section('content_header')
-    <h1>Buat Kegiatan</h1>
+    <x-content-header title="Dashboard" breadcrumb="Buat Kegiatan" />
 @stop
 
 @section('content')
