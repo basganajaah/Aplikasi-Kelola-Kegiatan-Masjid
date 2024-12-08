@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Kelola Kegiatan')
+@section('title', 'Sikahim | Kelola Kegiatan')
 
 @section('content_header')
     <x-header title="Buat Kegiatan" breadcrumb="Buat Kegiatan" />
