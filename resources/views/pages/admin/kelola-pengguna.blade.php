@@ -8,56 +8,31 @@
 
 @section('content')
     @section('plugins.Datatables', true)
-        @section('plugins.DatatablesPlugins', true)
-            @php
-            $heads = [
-                'ID',
-                'Name',
-                ['label' => 'Phone', 'width' => 40],
-                ['label' => 'Actions', 'no-export' => true, 'width' => 5],
-            ];
+    @section('plugins.DatatablesPlugins', true)
 
-            $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                            <i class="fa fa-lg fa-fw fa-pen"></i>
-                        </button>';
-            $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
-                            <i class="fa fa-lg fa-fw fa-trash"></i>
-                        </button>';
-            $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
-                            <i class="fa fa-lg fa-fw fa-eye"></i>
-                        </button>';
+    @php
+        $heads = [
+            'ID',
+            'Username',
+            ['label' => 'Email', 'width' => 40],
+            ['label' => 'Actions', 'no-export' => true, 'width' => 5],
+        ];
 
-            $config = [
-                'data' => [
-                    [1, 'John Bender', '+02 (123) 123456789', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [2, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [4, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [5, 'Peter asd', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [6, 'Peter qwsdasd', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [7, 'Peter Adasd', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [8, 'Peter Sasfasousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [9, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [10, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [11, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    [12, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                ],
-                'order' => [[1, 'asc']],
-                'columns' => [null, null, null, ['orderable' => false]],
-            ];
-            @endphp
+        $config = [
+            'order' => [[1, 'asc']],
+            'columns' => [
+                ['data' => 'id'],
+                ['data' => 'name'],
+                ['data' => 'email'],
+                ['data' => 'actions', 'orderable' => false],
+            ],
+            'ajax' => '/users',
+        ];
+    @endphp
 
-            <x-adminlte-datatable id="table7" :heads="$heads" head-theme="dark" footer-theme="dark" with-footer with-buttons hoverable>
-                @foreach($config['data'] as $row)
-                    <tr>
-                        @foreach($row as $cell)
-                            <td>{!! $cell !!}</td>
-                        @endforeach
-                    </tr>
-                @endforeach
-            </x-adminlte-datatable>
+    <x-adminlte-datatable id="users-table" :heads="$heads" :config="$config" head-theme="dark" footer-theme="dark" with-footer with-buttons hoverable />
+
 @endsection
-
 
 @section('footer')
     @include('components.footer')
