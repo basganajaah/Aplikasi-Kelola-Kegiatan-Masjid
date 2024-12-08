@@ -15,4 +15,9 @@ class PageController extends Controller
     {
         return view ('pages.list-kegiatan');
     }
+
+    public function kelolaPengguna()
+    {
+        return view ('pages.admin.kelola-pengguna');
+    }
 }
