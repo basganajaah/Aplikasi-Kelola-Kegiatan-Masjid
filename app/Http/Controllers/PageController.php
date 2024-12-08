@@ -20,4 +20,9 @@ class PageController extends Controller
     {
         return view ('pages.admin.kelola-pengguna');
     }
+
+    public function calendar()
+    {
+        return view ('pages.calendar');
+    }
 }
