@@ -26,7 +26,7 @@
         @endif
     </head>
     <body class="plus-jakarta-sans antialiased">
-        <div class="bg-gray-300 text-black/50">
+        <div class="bg-white text-black">
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#93B5B3] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">

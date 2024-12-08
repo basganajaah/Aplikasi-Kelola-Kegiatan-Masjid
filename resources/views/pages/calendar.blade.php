@@ -1,26 +1,34 @@
 @extends('adminlte::page')
 
-@section('title', 'Sikahim | Calendar')
+@section('title', 'Sikahim | Kalender')
 
 @section('content_header')
-    <x-header title="Calendar" breadcrumb="Calendar" />
+    <x-header title="Kalender" breadcrumb="Kalender" />
 @stop
 
 @section('content')
-<div class="row">
-    <div class="col-md-12">
-        <div class="card card-primary">
-            <div class="card-body p-0">
-                <!-- FullCalendar Element -->
-                <div id="calendar"></div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-primary">
+                <div class="card-body p-2">
+                    <div class="position-relative">
+                        Coba
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-primary">
+                <div class="card-body p-0">
+                    <div id="calendar"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('css')
-    <!-- Include additional styling if needed -->
+
 @endsection
 
 @section('js')
@@ -34,9 +42,9 @@
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             initialView: 'dayGridMonth',
-            events: '/your-events-route', // URL untuk memuat event
-            editable: true, // Aktifkan fitur drag-and-drop
-            droppable: true, // Aktifkan kemampuan untuk menjatuhkan event dari luar kalender
+            events: '/admin/list-kegiatan',
+            editable: true,
+            droppable: true,
         });
         calendar.render();
     });
