@@ -3,7 +3,7 @@
 @section('title', 'Kelola Kegiatan')
 
 @section('content_header')
-    <x-content-header title="List Kegiatan" breadcrumb="List Kegiatan" />
+    <x-header title="List Kegiatan" breadcrumb="List Kegiatan" />
 @stop
 
 @section('content')

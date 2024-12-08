@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <x-content-header title="Kelola Pengguna" breadcrumb="Kelola Pengguna" />
+    <x-header title="Kelola Pengguna" breadcrumb="Kelola Pengguna" />
 @stop
 
 @section('content')
