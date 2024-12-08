@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <x-content-header title="Dashboard" breadcrumb="Dashboard" />
+    <x-header title="Dashboard" breadcrumb="Dashboard" />
 @stop
 
 @section('adminlte_css')
