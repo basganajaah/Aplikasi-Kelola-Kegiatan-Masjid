@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Calendar')
+@section('title', 'Sikahim | Calendar')
 
 @section('content_header')
-    <x-header title="Calendar" breadcrumbs="Calendar" />
-@endsection
+    <x-header title="Calendar" breadcrumb="Calendar" />
+@stop
 
 @section('content')
 <div class="row">
