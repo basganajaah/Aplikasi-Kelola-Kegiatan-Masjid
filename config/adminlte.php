@@ -333,6 +333,11 @@ return [
         ],
         ['header' => 'HALAMAN'],
         [
+            'text' => 'Kalender',
+            'url' => 'admin/calendar',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+        ],
+        [
             'text' => 'Kelola Kegiatan',
             'icon' => 'fas fa-fw fa-clipboard-list',
             'submenu' => [
@@ -474,6 +479,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/datatables-plugins/buttons/css/buttons.bootstrap4.min.css',
+                ],
+            ],
+        ],
+        'FullCalendar' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/fullcalendar/main.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/fullcalendar/main.js',
                 ],
             ],
         ],
