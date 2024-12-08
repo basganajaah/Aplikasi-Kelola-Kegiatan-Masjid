@@ -12,3 +12,5 @@ Auth::routes();
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/create-kegiatan', [App\Http\Controllers\PageController::class, 'createKegiatan'])->name('create-kegiatan');
 Route::get('admin/list-kegiatan', [App\Http\Controllers\PageController::class, 'listKegiatan'])->name('list-kegiatan');
+
+Route::get('admin/kelola-pengguna', [App\Http\Controllers\PageController::class, 'kelolaPengguna'])->name('kelola-pengguna');
