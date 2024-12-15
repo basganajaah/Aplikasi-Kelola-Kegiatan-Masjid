@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf=8">
-        <meta name="viewport" content="width=device-widthinitial-scale=1">
-        <title></title>
-    </head>
-    <body>
-        Admin
+@extends('adminlte::page')
 
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
+@section('title', 'Sikahim | Kelola Kegiatan')
 
-            <x-responsive-nav-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-responsive-nav-link>
-        </form>
-    </body>
-</html>
+@section('content_header')
+    <x-header title="Dashboard Kegiatan" breadcrumb="Dashboard Kegiatan" />
+@stop
+
+@section('content')
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <x-adminlte-small-box title="2" text="Kegiatan Baru" icon="fas fa-search-plus" theme="primary" url="list-kegiatan" url-text="Selengkapnya"/>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <x-adminlte-small-box title="1" text="Kegiatan Berlangsung" icon="fas fa-hourglass-half" theme="warning" url="list-kegiatan" url-text="Selengkapnya"/>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <x-adminlte-small-box title="5" text="Kegiatan Selesai" icon="fas fa-check-double" theme="success" url="list-kegiatan" url-text="Selengkapnya"/>
+        </div>
+    </div>
+@stop
+
+@section('footer')
+    @include('components.footer')
+@endsection
