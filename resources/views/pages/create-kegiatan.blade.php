@@ -9,71 +9,106 @@
 @section('content')
     @section('plugins.Select2', true)
     @section('plugins.Sweetalert2', true)
-    @section('plugins.TempusDominus', true)
     @section('plugins.BsCustomFileInput', true)
+    @section('plugins.TempusDominusBs4', true)
         
     <div class="row">
         <!-- Bagian Kiri -->
         <div class="col-md-6">
-            <x-adminlte-input-file name="ifLabel" label="Thumbnail Kegiatan" placeholder="Upload file" disable-feedback/>
-            
-            <div class="form-group">
-                <label for="nama_kegiatan">Nama Kegiatan <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Nama Kegiatan" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="penyelenggara">Nama Penyelenggara <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="penyelenggara" name="penyelenggara" placeholder="Penyelenggara" required>
-            </div>
-
-            <x-adminlte-select2 name="sel2Vehicle" label="Kategori" label-class="text-black"
-                igroup-size="md" data-placeholder="Pilih opsi kategori" required>
+            <x-adminlte-input-file id="ifMultiple" name="ifMultiple[]" label="Thumbnail Kegiatan"
+                placeholder="Upload single file" igroup-size="md" legend="Browse" multiple>
                 <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-info">
-                        <i class="fas fa-tag"></i>
+                    <div class="input-group-text text-dark">
+                        <i class="fas fa-file-upload"></i>
                     </div>
                 </x-slot>
-                <option/>
-                <option>Kajian</option>
-                <option>Kompetisi</option>
-                <option>Pelatihan</option>
-                <option>Sosial</option>
-            </x-adminlte-select2>
-
-            @php
-                $config = [
-                    "placeholder" => "Pilih opsi tags",
-                    "allowClear" => true,
-                ];
-            @endphp
-            <x-adminlte-select2 id="sel2Category" name="sel2Category[]" label="Tags (Optional)"
-                label-class="text-black" igroup-size="md" :config="$config" multiple required>
+            </x-adminlte-input-file>
+            
+            <x-adminlte-input name="iUser" label="Nama Kegiatan" placeholder="Masukkan nama kegiatan" label-class="text-dark" required>
                 <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-info">
-                        <i class="fas fa-tags"></i>
+                    <div class="input-group-text">
+                        <i class="fas fa-file-signature text-dark"></i>
                     </div>
                 </x-slot>
-                <x-slot name="appendSlot">
-                    <x-adminlte-button theme="outline-dark" label="Hapus" icon="fas fa-lg fa-ban text-danger"/>
+            </x-adminlte-input>
+            
+            <x-adminlte-input name="iUser" label="Nama Kegiatan" placeholder="Masukkan nama penyelenggara" label-class="text-dark" required>
+                <x-slot name="prependSlot">
+                    <div class="input-group-text">
+                        <i class="fas fa-users text-dark"></i>
+                    </div>
                 </x-slot>
-                <option>Mengaji</option>
-                <option>Dakwah</option>
-                <option>Islami</option>
-                <option>Lomba</option>
-                <option>Solidaritas</option>
-            </x-adminlte-select2>
+            </x-adminlte-input>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <x-adminlte-select2 name="sel2Vehicle" label="Kategori *" label-class="text-black"
+                        igroup-size="md" data-placeholder="Pilih kategori" required>
+                        <x-slot name="prependSlot">
+                            <div class="input-group-text">
+                                <i class="fas fa-tag text-dark"></i>
+                            </div>
+                        </x-slot>
+                        <option/>
+                        <option>Kajian</option>
+                        <option>Kompetisi</option>
+                        <option>Pelatihan</option>
+                        <option>Sosial</option>
+                    </x-adminlte-select2>
+                </div>
+                <div class="col-md-8">
+                    @php
+                        $config = [
+                            "placeholder" => "Tambahkan tags",
+                            "allowClear" => true,
+                        ];
+                    @endphp
+                    <x-adminlte-select2 id="sel2Category" name="sel2Category[]" label="Tags (Optional)"
+                        label-class="text-black" igroup-size="md" :config="$config" multiple>
+                        <x-slot name="prependSlot">
+                            <div class="input-group-text bg-black">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                        </x-slot>
+                        <x-slot name="appendSlot">
+                            <x-adminlte-button theme="outline-dark" label="Hapus" icon="fas fa-lg fa-ban text-danger"/>
+                        </x-slot>
+                        <option>Mengaji</option>
+                        <option>Dakwah</option>
+                        <option>Islami</option>
+                        <option>Lomba</option>
+                        <option>Solidaritas</option>
+                    </x-adminlte-select2>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-6">
-            <div class="form-group">
-                <label for="tanggal_mulai">Tanggal Mulai <span class="text-danger">*</span></label>
-                <input type="text" class="form-control datetimepicker" id="tanggal_mulai" name="tanggal_mulai" placeholder="Tanggal Mulai" required>
-            </div>
-
-            <div class="form-group">
-                <label for="tanggal_selesai">Tanggal Selesai <span class="text-danger">*</span></label>
-                <input type="text" class="form-control datetimepicker" id="tanggal_selesai" name="tanggal_selesai" placeholder="Tanggal Selesai" required>
+            <div class="row">
+                <div class="col-md-6">
+                    @php
+                        $configStart = ['format' => 'DD/MM/YYYY HH:mm'];
+                    @endphp
+                    <x-adminlte-input-date name="idLabel1" :config="$configStart" placeholder="Pilih Tanggal"
+                        label="Tanggal Mulai" label-class="text-dark">
+                        <x-slot name="appendSlot">
+                            <x-adminlte-button theme="outline-dark" icon="fas fa-lg fa-calendar"
+                                title="Set Date Started"/>
+                        </x-slot>
+                    </x-adminlte-input-date>
+                </div>
+                <div class="col-md-6">
+                    @php
+                        $configFinished = ['format' => 'DD/MM/YYYY HH:mm'];
+                    @endphp
+                    <x-adminlte-input-date name="idLabel2" :config="$configFinished" placeholder="Pililh Tanggal"
+                        label="Tanggal Selesai" label-class="text-dark">
+                        <x-slot name="appendSlot">
+                            <x-adminlte-button theme="outline-dark" icon="fas fa-lg fa-calendar"
+                                title="Set Date Finished"/>
+                        </x-slot>
+                    </x-adminlte-input-date>
+                </div>
             </div>
 
             <div class="form-group">
@@ -86,7 +121,14 @@
                 <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Lokasi" required>
             </div>
 
-            <x-adminlte-input-file name="ifLabel" label="File Materi (Optional)" placeholder="Upload file" disable-feedback/>
+            <x-adminlte-input-file id="ifMultiple" name="ifMultiple[]" label="Materi Kegiatan (Optional)"
+                placeholder="Upload multiple files" igroup-size="md" legend="Browse" multiple>
+                <x-slot name="prependSlot">
+                    <div class="input-group-text text-dark">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input-file>
 
             <div class="form-group">
                 <label for="deskripsi">Deskripsi <span class="text-danger">*</span></label>

@@ -534,8 +534,8 @@ return [
                 ],
             ],
         ],
-        'TempusDominus' => [
-            'active' => true,
+        'TempusDominusBs4' => [
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
@@ -545,12 +545,12 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/tempusdominus/js/tempusdominus-bootstrap-4.min.js',
+                    'location' => 'vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
+                    'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
                 ],
             ]
         ],
