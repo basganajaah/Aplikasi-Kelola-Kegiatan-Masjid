@@ -358,11 +358,6 @@ return [
                     'url' => 'admin/list-kegiatan',
                     'icon' => 'fas fa-fw fa-list-ul',
                 ],
-                [
-                    'text' => 'Evaluasi Kegiatan',
-                    'url' => 'admin/evaluasi-kegiatan',
-                    'icon' => 'fas fa-fw fa-edit',
-                ]
             ]
         ],
         [
