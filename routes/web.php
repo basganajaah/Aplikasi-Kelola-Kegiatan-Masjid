@@ -7,12 +7,12 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/users/home', function () {
+    return view('pages.user.users-home');
+})->middleware(['auth', 'verified'])->name('users-home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -22,12 +22,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-route::get('admin/dashboard', [HomeController::class, 'index'])->
-middleware(['auth', 'admin']);
+Route::get('admin/home', [HomeController::class, 'index'])->
+middleware(['auth', 'admin'])->name('home');
 
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('admin/home', [HomeController::class, 'index'])->name('home');
+Route::get('/users', [UserController::class, 'index']); // check user terdaftar
+
+// Route::get('admin/home', [HomeController::class, 'index'])->name('home');
 Route::get('admin/dashboard-kegiatan', [PageController::class, 'dashboardKegiatan'])->name('dashboard-kegiatan');
 Route::get('admin/create-kegiatan', [PageController::class, 'createKegiatan'])->name('create-kegiatan');
 Route::get('admin/list-kegiatan', [PageController::class, 'listKegiatan'])->name('list-kegiatan');
