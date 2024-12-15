@@ -18,7 +18,7 @@
         <div class="col-lg-10">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Formulir Evaluasi</h3>
+              <h3 class="card-title">Formulir Evaluasi Kegiatan</h3>
             </div>
             <div class="card-body">
               <div class="form-group">
