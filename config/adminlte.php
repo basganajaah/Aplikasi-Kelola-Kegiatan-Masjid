@@ -369,23 +369,8 @@ return [
             'text' => 'Kelola Pengguna',
             'url' => 'admin/kelola-pengguna',
             'icon' => 'fas fa-fw fa-user',
+            'role' => 'admin',
         ],
-        // ['header' => 'labels'],
-        // [
-        //     'text' => 'important',
-        //     'icon_color' => 'red',
-        //     'url' => '#',
-        // ],
-        // [
-        //     'text' => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url' => '#',
-        // ],
-        // [
-        //     'text' => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url' => '#',
-        // ],
     ],
 
     /*
@@ -408,6 +393,7 @@ return [
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
+        App\Filters\RoleMenuFilter::class,
     ],
 
     /*

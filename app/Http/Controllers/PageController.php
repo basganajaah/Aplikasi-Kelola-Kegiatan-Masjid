@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+
     public function dashboardKegiatan()
     {
         return view ('pages.dashboard-kegiatan');
