@@ -4,12 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Kegiatan extends Model
 {
     use HasFactory;
 
     protected $table = 'kegiatan';
+    protected $primaryKey = 'activity_id';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         'thumbnail',
@@ -24,9 +28,14 @@ class Kegiatan extends Model
         'materi',
     ];
 
-    public function categories()
+    protected $casts = [
+        'datetime_started' => 'datetime',
+        'datetime_finished' => 'datetime',
+    ];
+
+    public function kategori()
     {
-        return $this->belongsTo(Kategori::class, 'kegiatan', 'activity_id', 'category_id');
+        return $this->belongsTo(Kategori::class, 'category_id', 'category_id');
     }
 
     public function tags()
