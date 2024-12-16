@@ -134,7 +134,7 @@
                     <textarea class="form-control" id="deskripsi" name="description" rows="4" placeholder="Deskripsi Kegiatan" required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary mb-5">Submit</button>
+                <button type="submit" class="btn btn-primary mb-5 id=submitBtn">Submit</button>
             </div>
         </div>
     </form>
@@ -145,19 +145,8 @@
 @endsection
 
 @section('js')
-    {{-- <script>
+    <script>
         $(document).ready(function() {
-
-            // Inisialisasi DateTimePicker
-            $('.datetimepicker').daterangepicker({
-                singleDatePicker: true,
-                timePicker: true,
-                timePicker24Hour: true,
-                locale: {
-                    format: 'YYYY-MM-DD HH:mm'
-                }
-            });
-
             // Handling submit button
             $('#submitBtn').click(function(e) {
                 e.preventDefault();
@@ -206,5 +195,5 @@
                 }
             });
         });
-    </script> --}}
+    </script>
 @endsection

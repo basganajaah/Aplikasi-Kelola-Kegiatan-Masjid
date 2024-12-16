@@ -73,6 +73,19 @@ class KegiatanController extends Controller
 
         return redirect()->route('list-kegiatan')->with('success', 'Kegiatan berhasil dibuat.');
     }
+
+    public function destroy($id)
+    {
+        $kegiatan = Kegiatan::find($id);
+
+        if (!$kegiatan) {
+            return response()->json(['message' => 'Kegiatan tidak ditemukan'], 404);
+        }
+
+        $kegiatan->delete();
+
+        return response()->json(['message' => 'Kegiatan berhasil dihapus'], 200);
+    }
 }
 
 
