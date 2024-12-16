@@ -16,7 +16,7 @@
                 <div class="card-body custom-bg1">
                     <h6 class="text-white">Mulai membuat kegiatan baru di aplikasi</h6>
                 </div>
-                <a href="Buat-kegiatan">
+                <a href="create-kegiatan">
                     <div class="card-footer card-primary text-center hover:bg-gray-950">
                         Ke halaman <b>Buat Kegiatan</b>
                         <i class="fas fa-arrow-right text-primary px-1"></i>

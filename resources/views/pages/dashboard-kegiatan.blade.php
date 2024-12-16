@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Sikahim | Kelola Kegiatan')
+@section('title', 'Sikahim | Dashboard Kegiatan')
 
 @section('content_header')
     <x-header title="Dashboard Kegiatan" breadcrumb="Dashboard Kegiatan" />

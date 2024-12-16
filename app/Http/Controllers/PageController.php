@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Tag;
+use App\Models\Kategori;
+use app\Models\Kegiatan;
 
 use Illuminate\Http\Request;
 
@@ -14,12 +17,16 @@ class PageController extends Controller
 
     public function createKegiatan()
     {
-        return view ('pages.create-kegiatan');
+        $categories = Kategori::all();
+        $tags = Tag::all();
+
+        return view ('pages.create-kegiatan', compact('categories', 'tags'));
     }
 
     public function listKegiatan()
     {
-        return view ('pages.list-kegiatan');
+        $kegiatans = Kegiatan::all();
+        return view ('pages.list-kegiatan', compact('kegiatans'));
     }
 
     public function kelolaPengguna()

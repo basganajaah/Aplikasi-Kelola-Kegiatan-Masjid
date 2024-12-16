@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KegiatanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,7 +29,6 @@ middleware(['auth', 'admin'])->name('home');
 
 Route::get('/users', [UserController::class, 'index']); // check user terdaftar
 
-// Route::get('admin/home', [HomeController::class, 'index'])->name('home');
 Route::get('admin/dashboard-kegiatan', [PageController::class, 'dashboardKegiatan'])->name('dashboard-kegiatan');
 Route::get('admin/create-kegiatan', [PageController::class, 'createKegiatan'])->name('create-kegiatan');
 Route::get('admin/list-kegiatan', [PageController::class, 'listKegiatan'])->name('list-kegiatan');
@@ -37,3 +37,5 @@ Route::get('admin/detail-kegiatan/{id}', [PageController::class, 'detail-kegiata
 Route::get('admin/evaluation/{id}', [PageController::class, 'evaluation'])->name('evaluation');
 
 Route::get('admin/kelola-pengguna', [PageController::class, 'kelolaPengguna'])->name('kelola-pengguna');
+
+Route::post('admin/list-kegiatan', [KegiatanController::class, 'store'])->name('kegiatan.store');
