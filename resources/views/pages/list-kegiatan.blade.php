@@ -10,17 +10,8 @@
     @section('plugins.Datatables', true)
     @section('plugins.DatatablesPlugins', true)
         @php
-            $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                            <i class="fa fa-lg fa-fw fa-pen"></i>
-                        </button>';
-            $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
-                            <i class="fa fa-lg fa-fw fa-trash"></i>
-                        </button>';
-            $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
-                            <i class="fa fa-lg fa-fw fa-eye"></i>
-                        </button>';
 
-            $heads = [
+$heads = [
                 'Nama Kegiatan',
                 'Kategori',
                 'Tanggal',
@@ -31,9 +22,18 @@
                 'Verifikasi',
                 ['label' => 'Aksi', 'no-export' => true, 'width' => 10],
             ];
-
+            
             $config = [
-                'data' => $kegiatan->map(function ($item) use ($btnEdit, $btnDelete, $btnDetails) {
+                'data' => $kegiatan->map(function ($item) {
+                    $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+                                    <i class="fa fa-lg fa-fw fa-pen"></i>
+                                </button>';
+                    $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow delete-btn" data-id="' . $item->activity_id . '" title="Delete">
+                                    <i class="fa fa-lg fa-fw fa-trash"></i>
+                                </button>';
+                    $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
+                                    <i class="fa fa-lg fa-fw fa-eye"></i>
+                                </button>';
                     return [
                         $item->activity_name,
                         $item->Kategori->category_name ?? 'Tidak Ada Kategori',
@@ -57,3 +57,49 @@
 @section('footer')
     @include('components.footer')
 @endsection
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).on('click', '.delete-btn', function() {
+            var kegiatanId = $(this).data('id'); // Mendapatkan ID kegiatan
+
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: 'Data ini akan dihapus!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika dikonfirmasi, kirim request delete ke server
+                    $.ajax({
+                        url: '/kegiatan/' + kegiatanId,
+                        type: 'DELETE',
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                        },
+                        success: function(response) {
+                            Swal.fire(
+                                'Dihapus!',
+                                'Kegiatan telah dihapus.',
+                                'success'
+                            )
+                            // Refresh atau hapus row yang telah dihapus dari tabel
+                            location.reload(); // Refresh halaman untuk melihat perubahan
+                        },
+                        error: function(response) {
+                            Swal.fire(
+                                'Gagal!',
+                                'Terjadi kesalahan saat menghapus.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+@stop

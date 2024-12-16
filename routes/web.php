@@ -40,3 +40,4 @@ Route::get('admin/kelola-pengguna', [PageController::class, 'kelolaPengguna'])->
 
 Route::post('admin/list-kegiatan', [KegiatanController::class, 'store'])->name('kegiatan.store');
 Route::get('admin/list-kegiatan', [KegiatanController::class, 'index'])->name('list-kegiatan');
+Route::delete('/kegiatan/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.destroy');
