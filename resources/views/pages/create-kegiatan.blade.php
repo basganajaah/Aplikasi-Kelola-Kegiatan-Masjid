@@ -73,7 +73,6 @@
                                     <i class="fas fa-tags"></i>
                                 </div>
                             </x-slot>
-                            <option value="" disabled>Pilih tag</option>
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->tag_id }}">{{ $tag->tag_name }}</option>
                             @endforeach

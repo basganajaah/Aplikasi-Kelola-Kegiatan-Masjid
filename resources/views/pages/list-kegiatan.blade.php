@@ -25,7 +25,7 @@
                 'Kategori',
                 'Tanggal',
                 'Lokasi',
-                'Pelaksana',
+                'Penyelenggara',
                 'Kuota',
                 'Status',
                 'Verifikasi',
@@ -33,11 +33,19 @@
             ];
 
             $config = [
-                'data' => [
-                    ['Kajian Islam dan Teknologi', 'Kajian', '2024-12-10', 'Masjid Raya', 'Aga Group', 100, '<span class="badge badge-success">Selesai</span>', '<span class="badge badge-success">Terverifikasi</span>', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    ['Mentoring Karakter Berbasis Agama', 'Pelatihan', '2024-12-15', 'Gedung Pelatihan', 'Budi Group', 50, '<span class="badge badge-warning">Berlangsung</span>', '<span class="badge badge-success">Terverifikasi</span>', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                    ['Lomba Baca dan Tulis Al-Qur\'an', 'Kompetisi', '2024-12-20', 'Lapangan Kota', 'Citra Group', 200, '<span class="badge badge-primary">Baru</span>', '<span class="badge badge-warning">Belum Terverifikasi</span>', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                ],
+                'data' => $kegiatan->map(function ($item) use ($btnEdit, $btnDelete, $btnDetails) {
+                    return [
+                        $item->activity_name,
+                        $item->Kategori->category_name ?? 'Tidak Ada Kategori',
+                        $item->datetime_started->format('Y-m-d'),
+                        $item->location,
+                        $item->penyelenggara,
+                        $item->max_participant ?? 'Tidak Ada',
+                        '<span class="badge badge-' . ($item->status == 'Selesai' ? 'success' : ($item->status == 'Berlangsung' ? 'warning' : ($item->status == 'Belum Mulai' ? 'info' : ($item->status == 'Cancelled' ? 'danger' : 'secondary')))) . '">' . $item->status . '</span>',
+                        '<span class="badge badge-' . ($item->verification == 'Terverifikasi' ? 'success' : ($item->verification == 'Ditolak' ? 'danger' : ($item->verification == 'Belum Terverifikasi' ? 'warning' : 'secondary'))) . '">' . $item->verification . '</span>',
+                        '<nobr>' . $btnEdit . $btnDelete . $btnDetails . '</nobr>',
+                    ];
+                })->toArray(),
                 'order' => [[2, 'asc']],
                 'columns' => [null, null, null, null, null, null, null, null, ['orderable' => false]],
             ];

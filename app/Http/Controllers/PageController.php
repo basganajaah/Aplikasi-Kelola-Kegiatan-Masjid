@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Kategori;
-use app\Models\Kegiatan;
+use App\Models\Kegiatan;
 
 use Illuminate\Http\Request;
 

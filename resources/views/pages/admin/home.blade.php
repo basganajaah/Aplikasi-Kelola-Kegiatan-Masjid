@@ -11,10 +11,10 @@
         <div class="col-md-6 col-lg-4">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <p class="card-title text-bold">Buat Kegiatan</p>
+                    <p class="card-title text-bold">Buat Kegiatan</p> <br>
                 </div>
                 <div class="card-body custom-bg1">
-                    <h6 class="text-white">Mulai membuat kegiatan baru di aplikasi</h6>
+                    <h6 class="text-black font-bold mt-5">Mulai membuat kegiatan baru di aplikasi</h6>
                 </div>
                 <a href="create-kegiatan">
                     <div class="card-footer card-primary text-center hover:bg-gray-950">
@@ -30,7 +30,7 @@
                     <p class="card-title text-bold">List Kegiatan</p>
                 </div>
                 <div class="card-body custom-bg2">
-                    <h6 class="text-white">Lihat list kegiatan yang terdaftar di aplikasi</h6>
+                    <h6 class="text-black font-bold mt-5">Lihat list kegiatan yang terdaftar di aplikasi</h6>
                 </div>
                 <a href="list-kegiatan">
                     <div class="card-footer card-primary text-center hover:bg-gray-950">
@@ -46,7 +46,7 @@
                     <p class="card-title text-bold">Kelola Pengguna</p>
                 </div>
                 <div class="card-body custom-bg3">
-                    <h6 class="text-white">Kelola pengguna yang terdaftar di aplikasi</h6>
+                    <h6 class="text-black font-bold mt-5 text">Kelola pengguna yang terdaftar di aplikasi</h6>
                 </div>
                 <a href="list-kegiatan">
                     <div class="card-footer card-primary text-center hover:bg-gray-950">
@@ -66,7 +66,6 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            opacity: 80%;
         }
         
         .custom-bg2 {
@@ -74,7 +73,6 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            opacity: 80%;
         }
 
         .custom-bg3 {
@@ -82,7 +80,6 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            opacity: 80%;
         }
 
         .custom-bg1 .custom-bg2 .custome-bg2 h6 {

@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class KegiatanController extends Controller
 {
+    public function index()
+    {   
+        $kegiatan = Kegiatan::with('kategori', 'tags')->get();
+
+        return view('pages.list-kegiatan', compact('kegiatan'));
+    }
+
     public function store(Request $request)
     {
         // Validasi Input
@@ -45,7 +52,7 @@ class KegiatanController extends Controller
         }
 
         // Simpan data lainnya
-        $kegiatan->user_id = $validated['user_id'];
+        $kegiatan->id = $validated['user_id'];
         $kegiatan->activity_name = $validated['activity_name'];
         $kegiatan->penyelenggara = $validated['penyelenggara'];
         $kegiatan->category_id = $validated['category_id'];
@@ -57,16 +64,11 @@ class KegiatanController extends Controller
 
         $kegiatan->save(); // Simpan kegiatan dan dapatkan ID kegiatan yang baru
 
-        $activity_id = $kegiatan->id;
+        $activity_id = $kegiatan->id    ;
 
         // Simpan Tags jika ada
         if ($request->has('sel2Category')) {
-            foreach ($validated['sel2Category'] as $tag_id) {
-                DB::table('memiliki_tag')->insert([
-                    'activity_id' => $activity_id, // Gunakan ID yang baru saja disimpan
-                    'tag_id' => $tag_id,
-                ]);
-            }
+            $kegiatan->tags()->sync($validated['sel2Category']);
         }
 
         return redirect()->route('list-kegiatan')->with('success', 'Kegiatan berhasil dibuat.');
