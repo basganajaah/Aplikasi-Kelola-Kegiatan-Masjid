@@ -39,7 +39,7 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Ingat Saya') }}</span>
             </label>
         </div>
 
@@ -52,7 +52,7 @@
         <div class="text-center mt-4">
             @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}" class="text-sm text-indigo-600 hover:text-indigo-500">
-                {{ __('Forgot your password?') }}
+                {{ __('Lupa Password?') }}
             </a>
             @endif
         </div>
@@ -60,10 +60,10 @@
         <!-- Register Link -->
         <div class="text-center mt-4">
             <p class="text-sm text-gray-600 dark:text-gray-400">
-                {{ __("Don't have an account?") }}
+                {{ __("Belum Punya Akun?") }}
                 @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="text-indigo-600 hover:text-indigo-500">
-                    {{ __('Register') }}
+                    {{ __('Daftar') }}
                 </a>
                 @endif
             </p>

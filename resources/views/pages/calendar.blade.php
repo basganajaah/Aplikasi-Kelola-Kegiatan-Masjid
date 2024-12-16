@@ -12,7 +12,7 @@
             <div class="card card-primary">
                 <div class="card-body p-2">
                     <div class="position-relative">
-                        Coba
+                        Kegiatan
                     </div>
                 </div>
             </div>

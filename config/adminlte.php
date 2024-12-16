@@ -70,7 +70,7 @@ return [
     */
 
     'logo' => '<b>Sikahim</b>App',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'images/Logo_LukmanHakim.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -345,13 +345,13 @@ return [
                     'text' => 'Dashboard Kegiatan',
                     'url' => 'admin/dashboard-kegiatan',
                     'icon' => 'fas fa-fw fa-th-large'
-                    
+
                 ],
                 [
                     'text' => 'Buat Kegiatan',
                     'url' => 'admin/create-kegiatan',
                     'icon' => 'fas fa-fw fa-plus-square'
-                    
+
                 ],
                 [
                     'text' => 'List Kegiatan',
